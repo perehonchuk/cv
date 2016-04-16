@@ -1,16 +1,13 @@
 before_install:
-- "sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended"
+- sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended
+  texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended
 script:
 - mkdir _build
-- pdflatex -output-directory _build tex/your_file_1.tex
-- pdflatex -output-directory _build tex/your_file_2.tex
+- pdflatex -output-directory _build tex/cv.tex
 deploy:
   provider: releases
   api_key:
-    secure: [YOUR KEY]
-  file:
-  - _build/your_file_1.pdf
-  - _build/your_file_2.pdf
-  skip_cleanup: true
+    secure: oeHl9fzkJOkeh/nVhWR+PqQ1WjABWYQyJd0LZjoUy4uQNwEIfuA4s0PEQoQaACs6VD0SC1iw8zsF301gE7aLhaH0TFczUppf22/958uhsY4JOoNu2t4TMv/VlRIiRGHIGglZERlKuzpLQu8E4hT981bgIw0iYZX8QPgsbsju+vrUC1HMHacQCGF5WLskp+Pu3WNa/GwKPDfbRMxRkx++FgLAzz/fZ/SiAXKzH2FpbGrKxiSQILbJgtKvZv65VF48qvo60MlYC34rg8kVJPl+kzaHXnH9OsIoMbs9n4F8ZZYhzssFi3kW5XQHnXkivuSHJ1/7CQEdCAHERv33Q9Tv+bwcr7/yKL9noMbgUvpdadZlyCrbs3lLHkm7RKbJRXfrqAGeacZwfIlIq0zdENkRnGSCWafv9h1D+WmEQSg2ZAyrkFa9TXcorIXScRozlFGKNi5MQ9WwTAd7lDn0gl4zPHXVhSMiK/QIQ6HSW5i7imC9p8WWb76j2GTKpNOGKFUpJrV8MhZttARnrHl6AhsIWyid7rA5zicyclJAwWzQohy8XL0rVezO+AXji32b/S5sxXhx7ov5TyhR52PW1r8pBaWtXcIwsXQ5GX3TKZ0YuIbhmJFWV5h6lXemkTxCLsWiqlOYMhUcolmlyl7/BWwTr1CNwRrlAVqdH2Oxw5ba3x8=
+  file: '_build/cv.pdf'
   on:
-    tags: true
+    repo: rhododendron/cv
